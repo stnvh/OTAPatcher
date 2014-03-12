@@ -20,8 +20,8 @@ replace=$(cd "$2" && pwd && cd "$dir")
 cd "$patch"
 
 find * -name "*.patch" | while read line; do
-	orig=$(trun "$line")
-	if [ -f "$line" && -f "$replace/$orig" ]; then
+	orig=$(echo "$line" | rev | cut -c 7- | rev)
+	if [ -f "$line" ] && [ -f "$replace/$orig" ]; then
 		bspatch "$replace/$orig" "$replace/"$orig"_patched" $line
 		chown --reference "$replace/$orig" "$replace/"$orig"_patched"
 		chmod --reference "$replace/$orig" "$replace/"$orig"_patched"

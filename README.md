@@ -1,4 +1,4 @@
-Install ```otapatch``` and ```trun``` to **/usr/sbin/** on your iOS device
+Install ```otapatch``` to **/usr/sbin/** on your iOS device
 
 Requires **bsdiff** from Cydia
 
@@ -32,16 +32,3 @@ when ```otapatch patches/Applications /Applications``` is executed, it recursive
 This is pretty much what the iOS OTA update system does, most likely not in a bash script.
 
 you can be more selective with patching too: ```otapatch patches/Applications/MobileSafari.app /Applications/MobileSafari.app```
-
-#trun:
-
-
-Trunicates the last 6 characters of the first argument.
-
-As there's very limited string manipulation in bash, I had to write a small C program to trim the last 6 characters off an inputted string (used to remove .patch from the end of the patch string to then apply to the real file)
-
-###example:
-
-```trun "hello world"```
-
-returns hello
