@@ -12,7 +12,7 @@ Requires **bsdiff** from Cydia
 
 Allows recursive bspatch application to files on the iPhone, to be (primarily) used with apple [OTA update zip files](http://theiphonewiki.com/wiki/OTA_Updates).
 
-This tool would effectively allow selective updating for jailbroken iOS devices, allowing the latest features from new updates to be applied, whilst skipping the security vulnerabilities which prevent jailbreaks.
+This tool would effectively allow selective updating for jailbroken iOS devices, allowing the latest features from new updates to be applied, whilst skipping the security vulnerabilitiy patches which prevent jailbreaks.
 
 ###example:
 
