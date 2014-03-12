@@ -8,6 +8,11 @@ if [ ! $1 ] || [ ! $2 ]; then
 	exit
 fi
 
+if [ ! -d "$1" ] || [ ! -d "$2" ]; then
+	echo "one or more directories don't exist"
+	exit
+fi
+
 dir=$(pwd)
 patch=$(cd "$1" && pwd && cd "$dir")
 replace=$(cd "$2" && pwd && cd "$dir")
