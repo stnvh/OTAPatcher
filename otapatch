@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Stan Hutcheon 2014
+# OTA Update patch applier, use with caution!
+
+if [ ! $1 ] || [ ! $2 ]; then
+	echo "usage: otapatch patchdir targetdir"
+	exit
+fi
+
+dir=$(pwd)
+patch=$(cd "$1" && pwd && cd "$dir")
+replace=$(cd "$2" && pwd && cd "$dir")
+
+cd "$patch"
+
+find * -name "*.patch" | while read line; do
+	orig=$(trun "$line")
+	if [ -f "$line" && -f "$replace/$orig" ]; then
+		bspatch "$replace/$orig" "$replace/"$orig"_patched" $line
+		chown --reference "$replace/$orig" "$replace/"$orig"_patched"
+		chmod --reference "$replace/$orig" "$replace/"$orig"_patched"
+		# TODO verify $orig_patched file (with cksum + lsbom)
+		rm "$replace/$orig"
+		mv "$replace/"$orig"_patched" "$replace/$orig"
+		echo "Patched $orig"
+	else
+		echo "File doesn't exist[?]"
+	fi
+done

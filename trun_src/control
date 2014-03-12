@@ -1,0 +1,10 @@
+Package: me.stanhutcheon.trun
+Name: trun
+Depends: 
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Trims the last 6 characters of the input (https://github.com/stnvh/OTApatcher)
+Maintainer: Stan Hutcheon
+Author: Stan Hutcheon
+Section: System
+Tag: role::hacker
